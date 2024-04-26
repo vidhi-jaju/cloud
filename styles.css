@@ -1,0 +1,89 @@
+ body {
+  font-family: Copperplate, Arial, sans-serif; /* Set font to Copperplate */
+  margin: 0;
+  padding: 0;
+  background-color: #291201; /* Set background color to dark brown */
+  color: white; /* Set text color to white */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+h1 {
+  color: white; /* Set heading color to white */
+}
+
+p {
+  color: white; /* Set paragraph color to white */
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.box {
+  width: 200px;
+  margin: 0 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #987649; /* Set background color of options to light pastel brown */
+  border-radius: 8px;
+  padding: 20px;
+  border: 2px solid #5d5b5b; /* Set border color to match background color */
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.box-text {
+  color: white; /* Set text color of buttons to white */
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 20px;
+  margin-top: 30px;
+  
+}
+
+.images img {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #6e5252;
+} 
+
+.post-ride {
+  background-color: #291201; /* Set background color to dark brown */
+}
+
+.post-ride .container {
+  background-color: rgba(255, 255, 255, 0.7); /* Set background color with opacity */
+}
+
+.post-ride h1,
+.post-ride p {
+  color: white; /* Set text color to white */
+}
+
+.post-ride button[type="submit"] {
+  background-color: #D2B48C; /* Set button background color to light brown */
+  color: black; /* Set button text color to black */
+  border: 2px solid #D2B48C; /* Add border to button */
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-ride button[type="submit"]:hover {
+  background-color: #bfa980; /* Darken button color on hover */
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Ride</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="post-ride">
+    <div class="container">
+        <h1 style="text-align: center;">Post a Ride</h1>
+        <!-- Form to post a ride -->
+        <form id="rideForm">
+            <label for="destination" style="text-align: left;">Destination (Place you are heading to):</label>
+            <input type="text" id="destination" name="destination" required><br><br>
+            <label for="passengers" style="text-align: left;">Number of Passengers:</label>
+            <input type="number" id="passengers" name="passengers" min="1" required><br><br>
+            <div id="passengerDetails"></div>
+            <label for="space" style="text-align: left;">Available Space (number of people you want):</label>
+            <input type="number" id="space" name="space" min="0" required><br><br>
+            <label for="departure_date" style="text-align: left;">Date of Departure:</label>
+            <input type="date" id="departure_date" name="departure_date" required><br><br>
+            <label for="departure_time" style="text-align: left;">Time of Departure:</label>
+            <input type="time" id="departure_time" name="departure_time" required><br><br>
+            <label for="return_time" style="text-align: left;">Expected Return Time:</label>
+            <input type="time" id="return_time" name="return_time" required><br><br>
+            <button type="submit">Post Ride</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("rideForm");
+            const passengersInput = document.getElementById("passengers");
+            const passengerDetailsDiv = document.getElementById("passengerDetails");
+
+            passengersInput.addEventListener("input", function () {
+                const numPassengers = parseInt(passengersInput.value);
+                passengerDetailsDiv.innerHTML = ""; // Clear previous input fields
+
+                for (let i = 1; i <= numPassengers; i++) {
+                    const nameLabel = document.createElement("label");
+                    nameLabel.textContent = `Name of Passenger ${i}:`;
+                    nameLabel.setAttribute("for", `passenger${i}_name`);
+
+                    const nameInput = document.createElement("input");
+                    nameInput.type = "text";
+                    nameInput.id = `passenger${i}_name`;
+                    nameInput.name = `passenger${i}_name`;
+                    nameInput.required = true;
+
+                    const mobileLabel = document.createElement("label");
+                    mobileLabel.textContent = `Mobile Number of Passenger ${i}:`;
+                    mobileLabel.setAttribute("for", `passenger${i}_mobile`);
+
+                    const mobileInput = document.createElement("input");
+                    mobileInput.type = "tel";
+                    mobileInput.id = `passenger${i}_mobile`;
+                    mobileInput.name = `passenger${i}_mobile`;
+                    mobileInput.pattern = "[0-9]{10}";
+                    mobileInput.required = true;
+
+                    const lineBreak = document.createElement("br");
+
+                    passengerDetailsDiv.appendChild(nameLabel);
+                    passengerDetailsDiv.appendChild(nameInput);
+                    passengerDetailsDiv.appendChild(lineBreak);
+                    passengerDetailsDiv.appendChild(mobileLabel);
+                    passengerDetailsDiv.appendChild(mobileInput);
+                    passengerDetailsDiv.appendChild(lineBreak);
+                }
+            });
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default form submission behavior
+                // Add your code to handle form submission here
+            });
+        });
+    </script>
+</body>
+</html>
+
